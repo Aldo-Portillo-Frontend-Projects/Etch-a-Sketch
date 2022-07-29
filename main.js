@@ -10,3 +10,10 @@ for (let i = 0; i < 16; i++){
     }
 }
 
+const boxes = document.querySelectorAll(".box");
+
+boxes.forEach((box) => {
+    box.addEventListener('mouseover', () => {
+        box.style.background = "black"
+    })
+})
