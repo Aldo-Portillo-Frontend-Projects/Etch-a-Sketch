@@ -8,17 +8,21 @@ for (let i = 0; i < 16 * 16; i++){
         divs = document.createElement('div');
         divs.classList.add('box');
         container.appendChild(divs);
-    
 }
 
-const button = document.createElement('button');
-page.appendChild(button);
+const slider = document.createElement('input');
+slider.setAttribute("type", "range");
+slider.setAttribute("min", "1");
+slider.setAttribute("max", "100");
+slider.setAttribute("value", "16");
+page.appendChild(slider);
 
-button.addEventListener('click', () => {
-    let x = prompt('Pick a number')
-    container.style.cssText = `display: grid; grid-template-columns: repeat(${x}, 1fr); grid-template-rows: repeat(${x},1fr);`
+
+slider.addEventListener('input', () => {
+    console.log(slider.value)
+    container.style.cssText = `display: grid; grid-template-columns: repeat(${slider.value}, 1fr); grid-template-rows: repeat(${slider.value},1fr);`
     container.innerHTML = ''
-    for (let i = 0; i < x * x; i++){
+    for (let i = 0; i < slider.value * slider.value; i++){
         divs = document.createElement('div');
         divs.classList.add('box');
         container.appendChild(divs);
